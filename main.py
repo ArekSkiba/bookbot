@@ -15,15 +15,13 @@ def get_word_count(text):
     return word_count
 
 def get_char_count(text):
-    text_lower = text.lower()
-    import string
-    string.printable
-    char_list = list(string.printable)
-
     count_dict = {}
-    for x in char_list:
-        char_count = text_lower.count(x)
-        count_dict.update({x: char_count})
+    for x in text:
+        lowered = x.lower()
+        if lowered in count_dict:
+            count_dict[lowered] += 1
+        else:
+            count_dict[lowered] = 1
     return count_dict
 
 main()
